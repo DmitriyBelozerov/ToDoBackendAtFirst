@@ -8,12 +8,12 @@ const { PORT = 3000 } = process.env;
 const app = express();
 app.use(bodyParser.json());
 
-app.use('/', router);
+app.use('/itemtodo', router);
 
 
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://127.0.0.1/mydb')
+mongoose.connect('mongodb://127.0.0.1/mytododb')
     .then(() => {
         console.log('Connected!');
         app.listen(PORT, console.log(`App listen ${PORT}`))
