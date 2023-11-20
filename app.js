@@ -6,14 +6,22 @@ const router = require('./routes/index');
 const { PORT = 3000 } = process.env;
 
 const app = express();
-
-mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://localhost:27017/mytododb');
-
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.use('/', router);
 
-app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`)
-})
+
+
+mongoose.set('strictQuery', false);
+mongoose.connect('mongodb://127.0.0.1/mydb')
+    .then(() => {
+        console.log('Connected!');
+        app.listen(PORT, console.log(`App listen ${PORT}`))
+    })
+    .catch((err) => {
+        console.log(`Error: ${err}`);
+    });
+
+
+
+
