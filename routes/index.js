@@ -8,7 +8,7 @@ router.post('/', (req, res) => {
             res.send({ data: item })
         })
         .catch((err) => {
-            res.status(500).send({ message: `Произошла ошибка: {err}` })
+            res.status(500).send({ message: `Произошла ошибка: ${err}` })
         })
 })
 
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
             res.send({ data: items })
         })
         .catch((err) => {
-            res.status(500).send({ message: `Произошла ошибка: {err}` })
+            res.status(500).send({ message: `Произошла ошибка: ${err}` })
         })
 })
 
