@@ -13,9 +13,10 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
+    console.log(req.method);
     ItemTodo.find({})
         .then((items) => {
-            res.send({ data: items })
+            res.status(200).send(items)
         })
         .catch((err) => {
             res.status(500).send({ message: `Произошла ошибка: ${err}` })
